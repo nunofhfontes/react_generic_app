@@ -2,3 +2,65 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* input {
+    @apply block ;
+} */
+
+.input {
+    @apply m-8;
+    @apply m-auto;
+    @apply w-4/5;
+    @apply max-w-xl;
+}
+
+.input label {
+    @apply block;
+    @apply font-bold;
+    @apply mb-2;
+}
+
+.input input {
+    font: inherit;
+    @apply block;
+    @apply w-full;
+    @apply border;
+    @apply border-solid;
+    border-color: #ccc;
+    @apply p-1;
+    @apply mb-2;
+  }
+  
+  .input input:focus {
+    outline: none;
+    border-color: #4f005f;
+  }
+
+
+/* 
+.input {
+  margin: 2rem auto;
+  padding: 1rem;
+  width: 90%;
+  max-width: 40rem;
+}
+
+.input label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.input input {
+  font: inherit;
+  display: block;
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 0.15rem;
+  margin-bottom: 0.5rem;
+}
+
+.input input:focus {
+  outline: none;
+  border-color: #4f005f;
+} */
