@@ -5,7 +5,7 @@ const userSubject = new BehaviorSubject(process.browser && JSON.parse(localStora
 
 export const userService = {
     user: userSubject.asObservable(),
-    get userValue () {
+    get userValue() {
         return userSubject.value
     }
 };

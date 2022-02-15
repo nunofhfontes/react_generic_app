@@ -31,10 +31,10 @@ export default function App() {
 
   }, []);
 
-  function authCheck(url) {
+  const authCheck = (url) => {
     // redirect to login page if accessing a private page and not logged in 
     console.log("checking auth....");
-}
+  }
 
 
   return (
