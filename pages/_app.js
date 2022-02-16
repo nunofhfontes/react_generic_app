@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 
-import { userService } from 'services';
+import { userService } from '../services/user.service';
 
 import '../styles/globals.css'
 import AddUser from '../components/Users/AddUser';
@@ -15,7 +15,7 @@ export default function App() {
   useEffect(() => {
 
     // on initial load - do an auth check 
-    authCheck();
+    authCheck(router.asPath);
     
     // on route change start - hide page content by setting authenticated to false     
     router.events.on('routeChangeStart', authCheck);
@@ -55,10 +55,13 @@ export default function App() {
 
   }
 
-
+  // <AddUser />
   return (
     <div className="bg-black h-screen font-sans flex items-center w-full bg-teal-lighter justify-center">
-      <AddUser />
+
+      {authenticated &&
+        <Component {...pageProps} />
+      }
     </div>
   )
 }
