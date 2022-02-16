@@ -1,7 +1,8 @@
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 
-import Head from 'next/head';
+import { userService } from 'services';
+
 import '../styles/globals.css'
 import AddUser from '../components/Users/AddUser';
 
@@ -34,6 +35,24 @@ export default function App() {
   const authCheck = (url) => {
     // redirect to login page if accessing a private page and not logged in 
     console.log("checking auth....");
+
+    //TODO - is a render neeeded?
+    // setUser(userService.userValue);
+
+    const publicPaths = ['/login', '/register'];
+    // remove query parameters 
+    const urlPath = url.split('?')[0];
+    
+    if(!userService.userValue && !publicPaths.includes(urlPath)) {
+      setAuthenticated(false);
+        router.push({
+            pathname: '/login',
+            query: { returnUrl: router.asPath }
+        });
+    } else {
+      setAuthenticated(false);
+    }
+
   }
 
 
